@@ -18,7 +18,6 @@ namespace P4.OnlineRadioDatabase
         private int minutes;
         private int seconds;
 
-
         public Song(string artistName, string songName, int minutes, int seconds)
         {
             this.ArtistName = artistName;

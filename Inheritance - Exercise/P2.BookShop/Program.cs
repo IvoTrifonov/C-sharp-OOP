@@ -8,21 +8,20 @@ namespace P2.BookShop
         {
             try
             {
-                string author = Console.ReadLine();
-                string title = Console.ReadLine();
-                decimal price = decimal.Parse(Console.ReadLine());
+                var author = Console.ReadLine();
+                var title = Console.ReadLine();
+                var price = decimal.Parse(Console.ReadLine());
 
-                Book book = new Book(author, title, price);
-                GoldenEditionBook goldenEditionBook = new GoldenEditionBook(author, title, price);
+                var book = new Book(author, title, price);
+                var goldenEditionBook = new GoldenEditionBook(author, title, price);
 
                 Console.WriteLine(book + Environment.NewLine);
                 Console.WriteLine(goldenEditionBook);
             }
-            catch (ArgumentException ae)
+            catch (ArgumentException ex)
             {
-                Console.WriteLine(ae.Message);
+                Console.WriteLine(ex.Message);
             }
-
         }
     }
 }

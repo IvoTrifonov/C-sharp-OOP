@@ -9,17 +9,10 @@ namespace P3.Mankind
             try
             {
                 var studentArgs = Console.ReadLine().Split();
-                var studentFirstName = studentArgs[0];
-                var studentLastName = studentArgs[1];
-                var studentFacNumber = studentArgs[2];
-                var student = new Student(studentFirstName, studentLastName, studentFacNumber);
+                Student student = StudentCreator(studentArgs);
 
                 var workerArgs = Console.ReadLine().Split();
-                var workerFirstName = workerArgs[0];
-                var workerLastName = workerArgs[1];
-                var workerWeekSalary = decimal.Parse(workerArgs[2]);
-                var workerWorkingHoursPerDay = decimal.Parse(workerArgs[3]);
-                var worker = new Worker(workerFirstName, workerLastName, workerWeekSalary, workerWorkingHoursPerDay);
+                Worker worker = WorkerCreator(workerArgs);
 
                 Console.WriteLine(student);
                 Console.WriteLine();
@@ -29,6 +22,25 @@ namespace P3.Mankind
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        private static Worker WorkerCreator(string[] workerArgs)
+        {
+            var workerFirstName = workerArgs[0];
+            var workerLastName = workerArgs[1];
+            var workerWeekSalary = decimal.Parse(workerArgs[2]);
+            var workerWorkingHoursPerDay = decimal.Parse(workerArgs[3]);
+
+            return new Worker(workerFirstName, workerLastName, workerWeekSalary, workerWorkingHoursPerDay);
+        }
+
+        private static Student StudentCreator(string[] studentArgs)
+        {
+            var studentFirstName = studentArgs[0];
+            var studentLastName = studentArgs[1];
+            var studentFacNumber = studentArgs[2];
+
+            return new Student(studentFirstName, studentLastName, studentFacNumber);
         }
     }
 }
